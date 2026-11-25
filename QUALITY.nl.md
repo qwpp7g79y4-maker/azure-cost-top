@@ -70,7 +70,7 @@ Toolchain 1.85 (cargo 1.85.1, rustc 1.85.1), gedraaid op 2026-11-25 op dezelfde 
 - cargo +1.85 fmt --check: exit 0.
 - cargo +1.85 clippy --all-targets --locked -- -D warnings: exit 0.
 - cargo +1.85 test --locked: exit 0, 197 geslaagd, 0 mislukt (141 in de bibliotheek, 0 in het programma, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
-- cargo +1.85 test --release --locked: not run.
+- cargo +1.85 test --release --locked: exit 0, 197 geslaagd, 0 mislukt, 0 genegeerd, geteld op 2026-11-25 uit de regels "test result" (141 in de bibliotheek, 0 in het programma, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
 
 ## Rood vooraf, groen erna (B1)
 

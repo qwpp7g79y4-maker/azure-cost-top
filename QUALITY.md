@@ -75,7 +75,7 @@ Toolchain 1.85 (cargo 1.85.1, rustc 1.85.1), run on 2026-11-25 on the same tree 
 - cargo +1.85 fmt --check: exit 0.
 - cargo +1.85 clippy --all-targets --locked -- -D warnings: exit 0.
 - cargo +1.85 test --locked: exit 0, 197 passed, 0 failed (141 in the library, 0 in the binary, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
-- cargo +1.85 test --release --locked: not run.
+- cargo +1.85 test --release --locked: exit 0, 197 passed, 0 failed, 0 ignored, counted on 2026-11-25 from the "test result" lines (141 in the library, 0 in the binary, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
 
 ## Red before, green after (B1)
 

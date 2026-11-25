@@ -1,8 +1,8 @@
 # Quality
 
-Tested commit: 6461226 (the last commit that is not a pure document).
+Tested commit: 5962d17 (the last commit that is not a pure document).
 
-Test count: 195
+Test count: 197
 
 This is the number of `#[test]` functions in `src/` and `tests/`, which is also
 what `cargo test` reports as passed. `tests/docs.rs` fails when this number,
@@ -63,12 +63,12 @@ The CI file lists deny and audit. Those jobs have not run on GitHub for this tre
 
 Date: 2026-11-25.
 
-Commit: 6461226, clean worktree, Linux, cargo 1.99.0.
+Commit: 5962d17, clean worktree, Linux, cargo 1.99.0.
 
 - cargo fmt --check: exit 0.
 - cargo clippy --all-targets --locked -- -D warnings: exit 0.
-- cargo test --locked: exit 0, 195 passed, 0 failed (141 in the library, 0 in the binary, 45 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
-- cargo test --release --locked: exit 0, the same 195 passed, 0 failed.
+- cargo test --locked: exit 0, 197 passed, 0 failed (141 in the library, 0 in the binary, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
+- cargo test --release --locked: exit 0, the same 197 passed, 0 failed.
 
 ## Red before, green after (B1)
 
@@ -106,6 +106,16 @@ Run against a `git archive` of 1f954c4 with the new `tests/cli.rs`, command carg
 
 On 13a7c65 it passes: 195 passed in debug and in release. The GitHub run is Not run. Windows was not run.
 
+## Red before, green after (closed standard output)
+
+With standard output closed at start (`azure-cost-top x.csv >&-`) the binary exited 0: Rust replaces a closed descriptor 1 with /dev/null before `main`, so the write succeeded and the output was lost silently. `src/stdout_probe.rs` (ported from cwlogs-retentie-bug) records in `.init_array` whether descriptor 1 was closed; `main` then prints `standard output is closed` and exits 2. `1>/dev/null` stays exit 0. The probe is the only `unsafe` code, in the binary only (Linux; elsewhere it reports not closed).
+
+New tests (`#[cfg(target_os = "linux")]`): `a_closed_stdout_at_start_is_exit_2_with_a_message` and `stdout_on_dev_null_is_still_exit_0`. Red on c8adc52 with the new test, command cargo test --locked --test cli closed_stdout:
+
+`test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.01s` (left: Some(0), right: Some(2))
+
+On 5962d17 both pass: 197 passed in debug and in release. Checked and found no gap: there is no `--output` option and no `build.rs`, so there is no symlink or special-file write and no `.git/HEAD` read to test.
+
 ## Windows file name (B1 of azure-eind-522d116)
 
 `control_characters_in_the_input_name_and_tag_key_are_replaced` makes a file whose name holds ESC and a newline. Windows refuses such names, so this test has `#[cfg(unix)]` and runs only on Unix. No other test builds such a name. There is no red cargo run for this: the failure is on Windows, and it was not run there. On Linux the test passed before and after (192 passed).
@@ -116,6 +126,6 @@ Not fixed here: N-a to N-l of azure-eind-1f954c4 (they stay open), N1 to N7 of t
 
 ## Not run
 
-Run on 6461226 on 2026-11-25: cargo fmt --check, clippy -D warnings, cargo test --locked and cargo test --release --locked, 195 passed (see Measured run). Earlier runs: 13a7c65, 195 passed; d83b8fd, 194 passed; 2026-11-24, 192 passed (before the B-1 to B-3 fix).
+Run on 5962d17 on 2026-11-25: cargo fmt --check, clippy -D warnings, cargo test --locked and cargo test --release --locked, 197 passed (see Measured run). Earlier runs: 6461226, 195 passed; 13a7c65, 195 passed; d83b8fd, 194 passed; 2026-11-24, 192 passed (before the B-1 to B-3 fix).
 
 Not run in this measurement: Windows, cargo deny, cargo audit, cargo publish --dry-run, a GitHub Actions run, fuzzing, and mutation testing.

@@ -1,8 +1,8 @@
 # Kwaliteit
 
-Gemeten commit: 6461226 (de laatste commit die geen puur document is).
+Gemeten commit: 5962d17 (de laatste commit die geen puur document is).
 
-Aantal tests: 195
+Aantal tests: 197
 
 Dit is het aantal `#[test]`-functies in `src/` en `tests/`, en ook wat `cargo test`
 als geslaagd meldt. `tests/docs.rs` controleert de Engelse `QUALITY.md` en
@@ -58,12 +58,12 @@ Het CI-bestand noemt deny en audit. Die taken hebben voor deze boom niet op GitH
 
 Datum: 2026-11-25.
 
-Commit: 6461226, schone worktree, Linux, cargo 1.99.0.
+Commit: 5962d17, schone worktree, Linux, cargo 1.99.0.
 
 - cargo fmt --check: exit 0.
 - cargo clippy --all-targets --locked -- -D warnings: exit 0.
-- cargo test --locked: exit 0, 195 geslaagd, 0 mislukt (141 in de bibliotheek, 0 in het programma, 45 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
-- cargo test --release --locked: exit 0, dezelfde 195 geslaagd, 0 mislukt.
+- cargo test --locked: exit 0, 197 geslaagd, 0 mislukt (141 in de bibliotheek, 0 in het programma, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
+- cargo test --release --locked: exit 0, dezelfde 197 geslaagd, 0 mislukt.
 
 ## Rood vooraf, groen erna (B1)
 
@@ -101,6 +101,16 @@ Gedraaid tegen een `git archive` van 1f954c4 met de nieuwe `tests/cli.rs`, comma
 
 Op 13a7c65 slaagt hij: 195 geslaagd, in debug en in release. De GitHub-run is Not run. Windows is niet uitgevoerd.
 
+## Rood vooraf, groen erna (gesloten standaarduitvoer)
+
+Met standaarduitvoer gesloten bij de start (`azure-cost-top x.csv >&-`) gaf het programma exit 0: Rust vervangt een gesloten descriptor 1 vóór `main` door /dev/null, dus het schrijven slaagde en de uitvoer ging stil verloren. `src/stdout_probe.rs` (overgenomen uit cwlogs-retentie-bug) legt in `.init_array` vast of descriptor 1 gesloten was; `main` meldt dan `standard output is closed` en stopt met exit 2. `1>/dev/null` blijft exit 0. De probe is de enige `unsafe`-code, alleen in het programma (Linux; elders meldt hij niet gesloten).
+
+Nieuwe tests (`#[cfg(target_os = "linux")]`): `a_closed_stdout_at_start_is_exit_2_with_a_message` en `stdout_on_dev_null_is_still_exit_0`. Rood op c8adc52 met de nieuwe test, commando cargo test --locked --test cli closed_stdout:
+
+`test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 46 filtered out; finished in 0.01s` (left: Some(0), right: Some(2))
+
+Op 5962d17 slagen beide: 197 geslaagd in debug en in release. Gecontroleerd en geen gat gevonden: er is geen optie `--output` en geen `build.rs`, dus er is geen symlink of speciaal bestand om naar te schrijven en geen `.git/HEAD` om te lezen.
+
 ## Windows-bestandsnaam (B1 van azure-eind-522d116)
 
 `control_characters_in_the_input_name_and_tag_key_are_replaced` maakt een bestand met ESC en een regeleinde in de naam. Windows weigert zulke namen, dus deze test heeft `#[cfg(unix)]` en draait alleen op Unix. Geen andere test bouwt zo'n naam. Er is geen rode cargo-run hiervoor: de fout zit op Windows en is daar niet uitgevoerd. Op Linux slaagde de test ervoor en erna (192 geslaagd).
@@ -111,6 +121,6 @@ Hier niet gerepareerd: N-a tot en met N-l van azure-eind-1f954c4 (die blijven op
 
 ## Niet uitgevoerd
 
-Gedraaid op 6461226 op 2026-11-25: cargo fmt --check, clippy -D warnings, cargo test --locked en cargo test --release --locked, 195 geslaagd (zie Gemeten run). Eerdere runs: 13a7c65, 195 geslaagd; d83b8fd, 194 geslaagd; 2026-11-24, 192 geslaagd (vóór het herstel van B-1 tot en met B-3).
+Gedraaid op 5962d17 op 2026-11-25: cargo fmt --check, clippy -D warnings, cargo test --locked en cargo test --release --locked, 197 geslaagd (zie Gemeten run). Eerdere runs: 6461226, 195 geslaagd; 13a7c65, 195 geslaagd; d83b8fd, 194 geslaagd; 2026-11-24, 192 geslaagd (vóór het herstel van B-1 tot en met B-3).
 
 Niet uitgevoerd (not run) in deze meting: Windows, cargo deny, cargo audit, cargo publish --dry-run, een GitHub Actions-run, fuzzing en mutation testing.

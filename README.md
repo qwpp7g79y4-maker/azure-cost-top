@@ -9,7 +9,7 @@ The tests and the measured numbers are in `QUALITY.md`.
 It reads one local file (or standard input). It uses no network and no Azure
 SDK, and it has no dependencies besides the Rust standard library.
 
-Test count: 195
+Test count: 197
 
 ## Installation
 

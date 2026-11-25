@@ -406,7 +406,7 @@ fn control_characters_in_the_input_name_and_tag_key_are_replaced() {
     assert!(!c.contains('\u{1b}'), "{c:?}");
 }
 
-#[cfg(unix)]
+#[cfg(target_os = "linux")]
 #[test]
 fn a_file_name_that_is_not_utf8_can_be_read() {
     use std::ffi::OsStr;
@@ -426,7 +426,7 @@ fn a_file_name_that_is_not_utf8_can_be_read() {
     assert!(text.contains("1.00"), "{text:?}");
 }
 
-#[cfg(unix)]
+#[cfg(target_os = "linux")]
 #[test]
 fn a_full_stderr_does_not_panic_and_keeps_the_exit_code() {
     let full = |args: &[&str]| {

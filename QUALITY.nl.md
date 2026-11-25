@@ -1,6 +1,6 @@
 # Kwaliteit
 
-Gemeten commit: 13a7c65 (de laatste commit die geen puur document is).
+Gemeten commit: 6461226 (de laatste commit die geen puur document is).
 
 Aantal tests: 195
 
@@ -48,7 +48,7 @@ warnings`, `cargo test`, `cargo publish --dry-run`.
 
 Deze pagina legt controles vast. Ze is geen garantie en geen fuzzrapport.
 
-Op 2026-11-18, op deze machine, Linux, met cargo -j 2, eindigden deze commando's met exit 0: cargo fmt --all -- --check, cargo clippy --all-targets --locked -- -D warnings, cargo test --locked en cargo test --release --locked. Debug en release haalden dezelfde tests. 0 mislukt. Die run was op een eerdere stand van de boom en is op 2026-11-24 niet herhaald.
+Op 2026-11-25, op deze machine, Linux, in een schone worktree van commit 6461226, eindigden deze vier commando's met exit 0: cargo fmt --check, cargo clippy --all-targets --locked -- -D warnings, cargo test --locked en cargo test --release --locked. Debug en release haalden dezelfde tests. 0 mislukt. Eerdere runs op andere commits staan hieronder alleen als geschiedenis.
 
 Het CI-bestand noemt deny en audit. Die taken hebben voor deze boom niet op GitHub gedraaid, omdat deze boom niet is gepusht.
 
@@ -56,11 +56,14 @@ Het CI-bestand noemt deny en audit. Die taken hebben voor deze boom niet op GitH
 
 ## Gemeten run
 
-Datum: 2026-11-24 (uit date +%F).
+Datum: 2026-11-25.
 
-Commando: cargo test --locked --no-fail-fast -j 2, gedraaid op commit 13a7c65 plus de documentbestanden van de volgende commit. Uitslag: 195 geslaagd, 0 mislukt
-(141 in de bibliotheek, 0 in het programma, 45 in tests/cli.rs, 9 in tests/docs.rs,
-0 doc-tests). STAND: geslaagd.
+Commit: 6461226, schone worktree, Linux, cargo 1.99.0.
+
+- cargo fmt --check: exit 0.
+- cargo clippy --all-targets --locked -- -D warnings: exit 0.
+- cargo test --locked: exit 0, 195 geslaagd, 0 mislukt (141 in de bibliotheek, 0 in het programma, 45 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
+- cargo test --release --locked: exit 0, dezelfde 195 geslaagd, 0 mislukt.
 
 ## Rood vooraf, groen erna (B1)
 
@@ -108,5 +111,6 @@ Hier niet gerepareerd: N-a tot en met N-l van azure-eind-1f954c4 (die blijven op
 
 ## Niet uitgevoerd
 
-Op 13a7c65: cargo fmt --check, clippy -D warnings, cargo test --locked en cargo test --release --locked, 195 geslaagd. Op 2026-11-24 is het cargo test-commando hierboven gedraaid, plus cargo fmt --all -- --check en cargo clippy --all-targets --locked -- -D warnings en cargo test --release --locked (192 geslaagd, exit 0; dat was vóór het herstel van B-1 tot en met B-3). Op d83b8fd: cargo fmt --check, clippy -D warnings, cargo test --locked en cargo test --release --locked, 194 geslaagd. Niet uitgevoerd: Windows, cargo deny, cargo audit, cargo publish
---dry-run, een GitHub Actions-run, fuzzing en mutation testing.
+Gedraaid op 6461226 op 2026-11-25: cargo fmt --check, clippy -D warnings, cargo test --locked en cargo test --release --locked, 195 geslaagd (zie Gemeten run). Eerdere runs: 13a7c65, 195 geslaagd; d83b8fd, 194 geslaagd; 2026-11-24, 192 geslaagd (vóór het herstel van B-1 tot en met B-3).
+
+Niet uitgevoerd (not run) in deze meting: Windows, cargo deny, cargo audit, cargo publish --dry-run, een GitHub Actions-run, fuzzing en mutation testing.

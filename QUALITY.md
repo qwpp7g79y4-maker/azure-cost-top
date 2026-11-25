@@ -1,6 +1,6 @@
 # Quality
 
-Tested commit: 13a7c65 (the last commit that is not a pure document).
+Tested commit: 6461226 (the last commit that is not a pure document).
 
 Test count: 195
 
@@ -53,7 +53,7 @@ warnings`, `cargo test`, `cargo publish --dry-run`.
 
 This page records checks. It is not a guarantee and it is not a fuzz report.
 
-On 2026-11-18, on this machine, Linux, with cargo -j 2, these commands finished with exit 0: cargo fmt --all -- --check, cargo clippy --all-targets --locked -- -D warnings, cargo test --locked, and cargo test --release --locked. Debug and release passed the same tests. 0 failed. That run was on an earlier state of the tree; it was not repeated on 2026-11-24.
+On 2026-11-25, on this machine, Linux, in a clean worktree of commit 6461226, these four commands finished with exit 0: cargo fmt --check, cargo clippy --all-targets --locked -- -D warnings, cargo test --locked, and cargo test --release --locked. Debug and release passed the same tests. 0 failed. Earlier runs on other commits are listed below as history only.
 
 The CI file lists deny and audit. Those jobs have not run on GitHub for this tree, because this tree is not pushed.
 
@@ -61,11 +61,14 @@ The CI file lists deny and audit. Those jobs have not run on GitHub for this tre
 
 ## Measured run
 
-Date: 2026-11-24 (from date +%F).
+Date: 2026-11-25.
 
-Command: cargo test --locked --no-fail-fast -j 2, run on commit 13a7c65 plus the documentation files of the next commit. Result: 195 passed, 0 failed
-(141 in the library, 0 in the binary, 45 in tests/cli.rs, 9 in tests/docs.rs,
-0 doc-tests). STAND: geslaagd.
+Commit: 6461226, clean worktree, Linux, cargo 1.99.0.
+
+- cargo fmt --check: exit 0.
+- cargo clippy --all-targets --locked -- -D warnings: exit 0.
+- cargo test --locked: exit 0, 195 passed, 0 failed (141 in the library, 0 in the binary, 45 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
+- cargo test --release --locked: exit 0, the same 195 passed, 0 failed.
 
 ## Red before, green after (B1)
 
@@ -113,5 +116,6 @@ Not fixed here: N-a to N-l of azure-eind-1f954c4 (they stay open), N1 to N7 of t
 
 ## Not run
 
-On 13a7c65: cargo fmt --check, clippy -D warnings, cargo test --locked and cargo test --release --locked, 195 passed. On 2026-11-24 the cargo test command above was run, plus cargo fmt --all -- --check, cargo clippy --all-targets --locked -- -D warnings and cargo test --release --locked (192 passed, exit 0; that was before the B-1 to B-3 fix). On d83b8fd: cargo fmt --check, clippy -D warnings, cargo test --locked and cargo test --release --locked, 194 passed. Not run: Windows, cargo deny, cargo audit, cargo publish
---dry-run, a GitHub Actions run, fuzzing, and mutation testing.
+Run on 6461226 on 2026-11-25: cargo fmt --check, clippy -D warnings, cargo test --locked and cargo test --release --locked, 195 passed (see Measured run). Earlier runs: 13a7c65, 195 passed; d83b8fd, 194 passed; 2026-11-24, 192 passed (before the B-1 to B-3 fix).
+
+Not run in this measurement: Windows, cargo deny, cargo audit, cargo publish --dry-run, a GitHub Actions run, fuzzing, and mutation testing.

@@ -442,6 +442,37 @@ fn a_full_stderr_does_not_panic_and_keeps_the_exit_code() {
     assert_eq!(usage.status.code(), Some(2), "usage error");
 }
 
+/// Run the binary through `sh` with descriptor 1 closed (`>&-`) or on /dev/null.
+#[cfg(target_os = "linux")]
+fn run_with_stdout(redirect: &str, args: &[&str]) -> Output {
+    Command::new("sh")
+        .arg("-c")
+        .arg(format!("exec \"$0\" \"$@\" {redirect}"))
+        .arg(env!("CARGO_BIN_EXE_azure-cost-top"))
+        .args(args)
+        .stdin(Stdio::null())
+        .output()
+        .unwrap()
+}
+
+#[cfg(target_os = "linux")]
+#[test]
+fn a_closed_stdout_at_start_is_exit_2_with_a_message() {
+    for args in [&[FIXTURE][..], &["--help"], &["--version"]] {
+        let o = run_with_stdout(">&-", args);
+        let err = String::from_utf8_lossy(&o.stderr).into_owned();
+        assert_eq!(o.status.code(), Some(2), "{args:?}: {err}");
+        assert!(err.contains("standard output is closed"), "{args:?}: {err}");
+    }
+}
+
+#[cfg(target_os = "linux")]
+#[test]
+fn stdout_on_dev_null_is_still_exit_0() {
+    let o = run_with_stdout(">/dev/null", &[FIXTURE]);
+    assert_eq!(o.status.code(), Some(0));
+}
+
 #[test]
 fn csv_formula_cells_get_a_quote_but_amounts_stay_numbers() {
     let path = hostile_export("hostile-formula.csv");

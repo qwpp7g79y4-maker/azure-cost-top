@@ -1,7 +1,18 @@
 use std::io::Write;
 use std::process::ExitCode;
 
+mod stdout_probe;
+
 fn main() -> ExitCode {
+    if stdout_probe::stdout_was_closed_at_start() {
+        // Rust has already replaced the closed descriptor with /dev/null, so the
+        // write would "succeed" and hide the lost output. Refuse instead.
+        let _ = writeln!(
+            std::io::stderr(),
+            "azure-cost-top: standard output is closed"
+        );
+        return ExitCode::from(2);
+    }
     let args = std::env::args_os().skip(1);
     let stdin = std::io::stdin();
     let stdout = std::io::stdout();

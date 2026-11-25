@@ -65,6 +65,13 @@ Commit: 5962d17, schone worktree, Linux, cargo 1.99.0.
 - cargo test --locked: exit 0, 197 geslaagd, 0 mislukt (141 in de bibliotheek, 0 in het programma, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
 - cargo test --release --locked: exit 0, dezelfde 197 geslaagd, 0 mislukt.
 
+Toolchain 1.85 (cargo 1.85.1, rustc 1.85.1), gedraaid op 2026-11-25 op dezelfde boom en dezelfde code als 5962d17 (HEAD ab8a774 verschilt alleen in documenten), Linux:
+
+- cargo +1.85 fmt --check: exit 0.
+- cargo +1.85 clippy --all-targets --locked -- -D warnings: exit 0.
+- cargo +1.85 test --locked: exit 0, 197 geslaagd, 0 mislukt (141 in de bibliotheek, 0 in het programma, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
+- cargo +1.85 test --release --locked: not run.
+
 ## Rood vooraf, groen erna (B1)
 
 De zes `stderr_*`-tests in `tests/cli.rs` zijn gedraaid tegen de `src/` van b30d9c4 (vóór de fix). Commando: cargo test --locked --test cli stderr_. Uitslag, rood:

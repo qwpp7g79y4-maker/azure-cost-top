@@ -70,6 +70,13 @@ Commit: 5962d17, clean worktree, Linux, cargo 1.99.0.
 - cargo test --locked: exit 0, 197 passed, 0 failed (141 in the library, 0 in the binary, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
 - cargo test --release --locked: exit 0, the same 197 passed, 0 failed.
 
+Toolchain 1.85 (cargo 1.85.1, rustc 1.85.1), run on 2026-11-25 on the same tree and the same code as 5962d17 (HEAD ab8a774 only differs in documents), Linux:
+
+- cargo +1.85 fmt --check: exit 0.
+- cargo +1.85 clippy --all-targets --locked -- -D warnings: exit 0.
+- cargo +1.85 test --locked: exit 0, 197 passed, 0 failed (141 in the library, 0 in the binary, 47 in tests/cli.rs, 9 in tests/docs.rs, 0 doc-tests).
+- cargo +1.85 test --release --locked: not run.
+
 ## Red before, green after (B1)
 
 The six `stderr_*` tests in `tests/cli.rs` were run against the `src/` of b30d9c4 (before the fix). Command: cargo test --locked --test cli stderr_. Result, red:

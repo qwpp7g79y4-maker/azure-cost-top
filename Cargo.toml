@@ -1,0 +1,20 @@
+[package]
+name = "azure-cost-top"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.75"
+authors = ["PEPAI <pep_ai@icloud.com>"]
+license = "MIT OR Apache-2.0"
+description = "Offline CLI: top costs per meter, resource group and tag from an Azure Cost Management CSV export, with optional month-over-month delta"
+readme = "README.md"
+repository = "https://github.com/qwpp7g79y4-maker/azure-cost-top"
+keywords = ["azure", "cost", "finops", "csv", "cli"]
+categories = ["command-line-utilities"]
+exclude = ["/target", ".github/"]
+
+[dependencies]
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true

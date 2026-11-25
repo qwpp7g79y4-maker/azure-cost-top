@@ -1,0 +1,13 @@
+Date,SubscriptionName,ResourceGroup,MeterCategory,MeterName,Tags,CostInBillingCurrency,BillingCurrencyCode
+09/05/2026,prod,rg-web,Virtual Machines,D2s v3,"""env"": ""prod"",""team"": ""web""",40.00,EUR
+09/12/2026,prod,rg-web,Storage,Hot LRS Data Stored,"""env"": ""prod"",""team"": ""web""",10.50,EUR
+09/20/2026,prod,rg-data,SQL Database,Gen5 vCore,"""env"": ""prod"",""team"": ""data""",55.25,EUR
+09/21/2026,prod,rg-data,Storage,Hot LRS Data Stored,"""env"": ""dev"",""team"": ""data""",4.25,EUR
+09/30/2026,prod,RG-Web,Bandwidth,Data Transfer Out,,2.00,EUR
+10/03/2026,prod,rg-web,Virtual Machines,D2s v3,"""env"": ""prod"",""team"": ""web""",42.00,EUR
+10/10/2026,prod,rg-web,Virtual Machines,B2s,"""env"": ""dev"",""team"": ""web""",9.00,EUR
+10/11/2026,prod,rg-web,Storage,Hot LRS Data Stored,"""env"": ""prod"",""team"": ""web""",12.50,EUR
+10/15/2026,prod,rg-data,SQL Database,Gen5 vCore,"""env"": ""prod"",""team"": ""data""",60.75,EUR
+10/16/2026,prod,rg-data,Storage,Hot LRS Data Stored,"""env"": ""dev"",""team"": ""data""",3.75,EUR
+10/20/2026,prod,rg-ops,Log Analytics,Data Ingestion,"""env"": ""prod"",""team"": ""ops""",25.00,EUR
+10/31/2026,prod,RG-WEB,Bandwidth,Data Transfer Out,,-1.00,EUR

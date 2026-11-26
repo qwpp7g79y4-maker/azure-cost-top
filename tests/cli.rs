@@ -189,7 +189,7 @@ fn reads_standard_input() {
     let o = child.wait_with_output().unwrap();
     assert!(o.status.success());
     let s = String::from_utf8(o.stdout).unwrap();
-    assert!(s.contains("azure-cost-top 0.1.0 - stdin"));
+    assert!(s.contains("azure-cost-top 0.1.1 - stdin"));
     assert!(s.contains("Gen5 vCore"));
 }
 

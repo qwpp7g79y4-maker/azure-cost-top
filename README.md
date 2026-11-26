@@ -15,7 +15,7 @@ Test count: 197
 
 ## Installation
 
-Version 0.1.0. From crates.io:
+Version 0.1.1. From crates.io:
 
 ```sh
 cargo install azure-cost-top
@@ -65,7 +65,7 @@ azure-cost-top tests/fixtures/sample.csv --delta --by group -n 3
 ```
 
 ```
-azure-cost-top 0.1.0 - tests/fixtures/sample.csv
+azure-cost-top 0.1.1 - tests/fixtures/sample.csv
 Period: 2026-10 vs 2026-09   Rows: 7
 Total: 152.00 EUR (was 112.00, +40.00, +35.7%)
 

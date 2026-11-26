@@ -15,7 +15,7 @@ dependencies.
 
 ## Installatie
 
-Versie 0.1.0. Vanaf crates.io, zodra 0.1.0 daar staat:
+Versie 0.1.1. Vanaf crates.io, zodra 0.1.1 daar staat:
 
 ```sh
 cargo install azure-cost-top
@@ -67,7 +67,7 @@ azure-cost-top tests/fixtures/sample.csv --delta --by group -n 3
 ```
 
 ```
-azure-cost-top 0.1.0 - tests/fixtures/sample.csv
+azure-cost-top 0.1.1 - tests/fixtures/sample.csv
 Period: 2026-10 vs 2026-09   Rows: 7
 Total: 152.00 EUR (was 112.00, +40.00, +35.7%)
 

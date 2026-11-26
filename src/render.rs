@@ -354,7 +354,7 @@ mod tests {
     #[test]
     fn table_has_heading_and_totals() {
         let t = table(&plain());
-        assert!(t.starts_with("azure-cost-top 0.1.0 - in.csv\n"), "{t}");
+        assert!(t.starts_with("azure-cost-top 0.1.1 - in.csv\n"), "{t}");
         assert!(t.contains("Period: all months   Rows: 3"));
         assert!(t.contains("Total: 30.00 EUR"));
     }

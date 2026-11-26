@@ -15,7 +15,7 @@ Test count: 197
 
 ## Installation
 
-Version 0.1.0. From crates.io, once 0.1.0 is published there:
+Version 0.1.0. From crates.io:
 
 ```sh
 cargo install azure-cost-top

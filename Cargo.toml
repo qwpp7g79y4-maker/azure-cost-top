@@ -10,7 +10,7 @@ readme = "README.md"
 repository = "https://github.com/qwpp7g79y4-maker/azure-cost-top"
 keywords = ["azure", "cost", "finops", "csv", "cli"]
 categories = ["command-line-utilities"]
-exclude = ["/target", ".github/"]
+exclude = ["/target", ".github/", "*-plugin/"]
 
 [dependencies]
 

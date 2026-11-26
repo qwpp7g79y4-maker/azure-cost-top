@@ -1,6 +1,6 @@
 # Kwaliteit
 
-pep: 8.6
+pep: 10
 
 Gemeten commit: 5962d17 (de laatste commit die geen puur document is).
 

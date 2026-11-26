@@ -1,6 +1,6 @@
 # Quality
 
-pep: 8.6
+pep: 10
 
 Tested commit: 5962d17 (the last commit that is not a pure document).
 

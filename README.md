@@ -33,7 +33,7 @@ cargo build --release
 This reads the small sample export in `tests/fixtures/` and prints the three
 most expensive meters. Nothing is written to disk.
 
-## Aan de slag in 5 minuten
+## Quickstart in 5 minutes
 
 1. Install a Rust toolchain (1.75 or newer).
 2. Run `cargo build --release` in this directory.

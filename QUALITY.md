@@ -1,6 +1,14 @@
 # Quality
 
-pep: 10
+pep: 7
+
+## Open points that count
+
+| Point | Class | Deduction |
+|---|---|---|
+| No THIRD-PARTY-LICENSES.html page and no link to it | S | 3 |
+
+Score: 10 − 3 = 7. Other open points in this file have no class and do not count. They are not repaired yet.
 
 Tested commit: 5962d17 (the last commit that is not a pure document).
 

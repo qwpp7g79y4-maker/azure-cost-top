@@ -10,6 +10,8 @@ pep: 7
 
 Score: 10 − 3 = 7. Other open points in this file have no class and do not count. They are not repaired yet.
 
+Update 2026-11-26: THIRD-PARTY-LICENSES.html and the README link to it are added (branch fix/license-page). The score above stays as it was set and is not recalculated in this change.
+
 Tested commit: 5962d17 (the last commit that is not a pure document).
 
 Test count: 197

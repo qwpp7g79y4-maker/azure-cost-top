@@ -1,5 +1,7 @@
 # Kwaliteit
 
+pep: 8.6
+
 Gemeten commit: 5962d17 (de laatste commit die geen puur document is).
 
 Aantal tests: 197
@@ -124,7 +126,7 @@ Op 5962d17 slagen beide: 197 geslaagd in debug en in release. Gecontroleerd en g
 
 ## Nog open
 
-Hier niet gerepareerd: N-a tot en met N-l van azure-eind-1f954c4 (die blijven open), N1 tot en met N7 van de review azure-eind-98eba9b (dubbele kolomkoppen, dubbele tagsleutels, een lege valutacel, JSON houdt C1 en bidi, geheugengebruik, het bedragbereik, MSRV 1.75 niet gedraaid), bidi- en zero-width-tekens in tabel en CSV, geheugengebruik en CI die nog niet gedraaid heeft. Een volle stderr is hersteld (B-1).
+Hier niet gerepareerd: bevindingen a tot en met l van azure-eind-1f954c4 (die blijven open), bevindingen 1 tot en met 7 van de review azure-eind-98eba9b (dubbele kolomkoppen, dubbele tagsleutels, een lege valutacel, JSON houdt C1 en bidi, geheugengebruik, het bedragbereik, MSRV 1.75 niet gedraaid), bidi- en zero-width-tekens in tabel en CSV, geheugengebruik en CI die nog niet gedraaid heeft. Een volle stderr is hersteld (B-1).
 
 ## Niet uitgevoerd
 

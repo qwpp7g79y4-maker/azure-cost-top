@@ -1,6 +1,8 @@
 # Changelog
 
-## [Unreleased]
+## [0.1.0] - 2026-11-09
+
+Changes made after 2026-11-09; the version number did not change.
 
 - Fix: a date cell of 8 bytes with a multibyte character no longer panics; an unreadable date exits 2.
 - Fix: control characters in names, the input name and tag values are replaced in the table and in CSV.
@@ -13,7 +15,6 @@
 
 - Documentation: README.nl.md now describes safe text. Dutch README and quality page, CONTRIBUTING, SECURITY, Quick start, Exit codes, Limitations and Maintenance sections.
 
-## [0.1.0] - 2026-11-09
 
 First release.
 

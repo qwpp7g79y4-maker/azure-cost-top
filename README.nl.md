@@ -1,5 +1,7 @@
 # azure-cost-top
 
+[![crates.io](https://img.shields.io/crates/v/azure-cost-top.svg)](https://crates.io/crates/azure-cost-top) [![downloads](https://img.shields.io/crates/d/azure-cost-top.svg)](https://crates.io/crates/azure-cost-top) [![CI](https://github.com/qwpp7g79y4-maker/azure-cost-top/actions/workflows/ci.yml/badge.svg)](https://github.com/qwpp7g79y4-maker/azure-cost-top/actions/workflows/ci.yml) [![PEPAI checked](https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fqwpp7g79y4-maker%2Fazure-cost-top%2Fmain%2F.github%2Fbadge.json)](QUALITY.md) [![MSRV 1.85](https://img.shields.io/badge/MSRV-1.85-blue.svg)](https://github.com/qwpp7g79y4-maker/azure-cost-top/blob/main/Cargo.toml) [![License: MIT OR Apache-2.0](https://img.shields.io/badge/license-MIT%20OR%20Apache--2.0-blue.svg)](https://github.com/qwpp7g79y4-maker/azure-cost-top#license)
+
 Offline CLI die een **Azure Cost Management CSV-export** leest en de duurste
 posten toont per **meter**, **resourcegroep** en **tag**, met een optioneel
 **verschil met de maand ervoor**.
@@ -36,7 +38,7 @@ duurste meters. Er wordt niets naar schijf geschreven.
 
 ## Aan de slag in 5 minuten
 
-1. Installeer een Rust-toolchain (1.75 of nieuwer).
+1. Installeer een Rust-toolchain (1.85 of nieuwer).
 2. Draai `cargo build --release` in deze map.
 3. Exporteer je kosten uit Azure Cost Management als CSV.
 4. Draai `./target/release/azure-cost-top export.csv`.
@@ -133,6 +135,8 @@ komt binnen via Issues, zie `CONTRIBUTING.md`. Beveiligingsmeldingen gaan naar
 het adres in `SECURITY.md`. Wijzigingen staan in `CHANGELOG.md`. De tool heeft
 geen prijslijst en geen dependencies, dus er is niets te verversen behalve de
 Rust-toolchain.
+
+Na een release staat de tool in sluimermodus (dormant): een nieuwe versie komt er alleen bij een gemelde bug, een verzoek of een beveiligingsprobleem. Beveiliging gaat altijd voor.
 
 ## Ontwikkeling
 

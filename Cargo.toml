@@ -2,7 +2,7 @@
 name = "azure-cost-top"
 version = "0.1.0"
 edition = "2021"
-rust-version = "1.75"
+rust-version = "1.85"
 authors = ["PEPAI <pep_ai@icloud.com>"]
 license = "MIT OR Apache-2.0"
 description = "Offline CLI: top costs per meter, resource group and tag from an Azure Cost Management CSV export, with optional month-over-month delta"

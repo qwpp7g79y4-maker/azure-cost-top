@@ -1,5 +1,7 @@
 # Quality
 
+pep: 10
+
 Tested commit: 5962d17 (the last commit that is not a pure document).
 
 Test count: 197
@@ -129,7 +131,7 @@ On 5962d17 both pass: 197 passed in debug and in release. Checked and found no g
 
 ## Still open
 
-Not fixed here: N-a to N-l of azure-eind-1f954c4 (they stay open), N1 to N7 of the review azure-eind-98eba9b (duplicate column headers, duplicate tag keys, an empty currency cell, JSON keeps C1 and bidi, memory use, the amount range, MSRV 1.75 not run), bidi and zero-width characters in table and CSV, memory use, and CI that has not run. A full stderr is fixed (B-1).
+Not fixed here: findings a to l of azure-eind-1f954c4 (they stay open), findings 1 to 7 of the review azure-eind-98eba9b (duplicate column headers, duplicate tag keys, an empty currency cell, JSON keeps C1 and bidi, memory use, the amount range, MSRV 1.75 not run), bidi and zero-width characters in table and CSV, memory use, and CI that has not run. A full stderr is fixed (B-1).
 
 ## Not run
 

@@ -152,3 +152,5 @@ cargo publish --dry-run
 ## Licentie
 
 MIT OR Apache-2.0, zie `LICENSE-MIT` en `LICENSE-APACHE`.
+
+Het programma bevat geen externe crates; [THIRD-PARTY-LICENSES.html](THIRD-PARTY-LICENSES.html) zegt dat.

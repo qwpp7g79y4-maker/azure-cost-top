@@ -1,14 +1,8 @@
 # Kwaliteit
 
-pep: 7
+pep: 10
 
-## Open punten die meetellen
-
-| Punt | Klasse | Aftrek |
-|---|---|---|
-| Geen THIRD-PARTY-LICENSES.html-pagina en geen link ernaar | S | 3 |
-
-Cijfer: 10 − 3 = 7. Andere open punten in dit bestand hebben geen klasse en tellen niet mee. Ze zijn nog niet hersteld.
+Geen open B, B-, M, M-, S of S-: 10 − 0 = 10. Andere open punten in dit bestand hebben geen klasse en tellen niet mee.
 
 Gemeten commit: 5962d17 (de laatste commit die geen puur document is).
 

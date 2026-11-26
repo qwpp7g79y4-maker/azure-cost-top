@@ -144,3 +144,5 @@ cargo publish --dry-run
 ## License
 
 MIT OR Apache-2.0, see `LICENSE-MIT` and `LICENSE-APACHE`.
+
+The binary includes no third-party crates; [THIRD-PARTY-LICENSES.html](THIRD-PARTY-LICENSES.html) says so.
